@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { CounterButton } from "../CounterButton";
 import { CongratulationMessage } from "../CongratulationMessage";
+import { useLocation } from "react-router-dom";
+import { parse } from "query-string";
 
-export const CounterButtonPage = (/*{ onIncrement, numberOfClicks }*/) => {
-    const [numberOfClicks, setNumberOfClicks] = useState(0);
+export const CounterButtonPage = () => {
+    const location = useLocation();
+    // const startingValue = parse(location.search).startingValue;
+    const [numberOfClicks, setNumberOfClicks] = useState(0); //useState(Number(startingValue));
     const [hideMessage, setHideMessage] = useState(false);
 
     const increment = () => { setNumberOfClicks(numberOfClicks + 1); }
