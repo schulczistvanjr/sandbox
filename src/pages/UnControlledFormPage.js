@@ -8,6 +8,7 @@ export const UnControlledFormPage = () => {
     return (
         <form>
             <h3>Please enter your information:</h3>
+            <p>Uncontrolled Form</p>
             <div>
             <input
                 ref={nameInput}

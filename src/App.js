@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   HomePage,
   CounterButtonPage,
@@ -9,29 +9,32 @@ import {
   ProtectedPage,
   ControlledFormPage,
   UnControlledFormPage,
+  UserProfilePage,
 } from './pages';
+import { NavBar } from './NavBar';
+// import { FormsNavBar } from './FormsNavBar';
 
 function App() {
-  const [numberOfClicks, setNumberOfClicks] = useState(0);
-  const [hideMessage, setHideMessage] = useState(false);
-
-  const increment = () => { setNumberOfClicks(numberOfClicks + 1); }
-
   return (
     <div className="App">
       <Router>
-      <Link to="/"> Home Page </Link>
-      <Link to="/counter"> Counter Button Page </Link>
-      <Link to="/people-list"> People List Page</Link>
+      <NavBar />
+        <div className='App-header'>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/counter" element={<CounterButtonPage />} />
-          <Route path="/controlled" element={<ControlledFormPage />} />
           <Route path="/uncontrolled" element={<UnControlledFormPage />} />
+          <Route path="/controlled" element={<ControlledFormPage />} />
+          {/* <Route path="/forms" element={<FormsNavBar />} >
+              <Route path="forms/controlled" element={<ControlledFormPage />} />
+              <Route path="forms/uncontrolled" element={<UnControlledFormPage />} />
+          </Route> */}
           <Route path="/people-list" element={<PeopleListPage />} />
           <Route path="/protected" element={<ProtectedPage />} />
+          <Route path="/user" element={<UserProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </div>
       </Router>
     </div>
   );

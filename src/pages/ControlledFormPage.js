@@ -8,6 +8,7 @@ export const ControlledFormPage = () => {
     return (
         <form>
             <h3>Please enter your information:</h3>
+            <p>Controlled Form</p>
             <div>
             <input
                 type="text"
