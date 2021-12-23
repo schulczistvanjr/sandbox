@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DangerButton } from "./Button";
 
-export const CounterButton = ({ onIncrement, numberOfClicks }) => {
+export const CounterButton = ({ onIncrement, numberOfClicks = 0 }) => {
     useEffect(() => {
         console.log("useEffect function called");
     }, []);
