@@ -14,18 +14,17 @@ const StyledButton = styled.button`
     padding: 16px;
 `;
 
-
 export const Button = ({ children, buttonColor, ...props }) => {
     return (
         <StyledButton buttonColor={buttonColor} {...props}>{children}</StyledButton>
     );
 }
 
-export const DangerButton = ({ children, props }) => {
+export const DangerButton = ({ children, ...props }) => {
     return <Button buttonColor='red' {...props}>{children}</Button>;
 }
 
-export const SuccessButton = ({ children, props }) => {
+export const SuccessButton = ({ children, ...props }) => {
     return <Button buttonColor='green' {...props}>{children}</Button>;
 }
 

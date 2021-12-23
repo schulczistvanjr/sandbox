@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CounterButton } from "../CounterButton";
 import { CongratulationMessage } from "../CongratulationMessage";
-import { useLocation } from "react-router-dom";
-import { parse } from "query-string";
 import { DisplayIf } from "../DisplayIf";
+import { DangerButton } from "../Button";
 
 export const CounterButtonPage = () => {
-    const location = useLocation();
-    const startingValue = parse(location.search).startingValue || 0;
-    const [numberOfClicks, setNumberOfClicks] = useState(Number(startingValue));
+    const [numberOfClicks, setNumberOfClicks] = useState(Number(localStorage.getItem("numberOfClicks")) || 0);
     const [hideMessage, setHideMessage] = useState(false);
+    
+    useEffect(() => {        
+        localStorage.setItem("numberOfClicks", numberOfClicks);
+    }, [numberOfClicks]);
 
-    const increment = () => { setNumberOfClicks(numberOfClicks + 1); }
+    const increment = () => { 
+        setNumberOfClicks(numberOfClicks + 1); 
+    }
+
+    const resetClickCount = () => {
+        setNumberOfClicks(0);
+    } 
 
     return (
         <>
@@ -24,6 +31,7 @@ export const CounterButtonPage = () => {
         <CounterButton
             onIncrement={increment}
             numberOfClicks={numberOfClicks} />
+        <DangerButton onClick={resetClickCount}>Reset</DangerButton>
         </>
   );
 }
