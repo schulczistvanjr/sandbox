@@ -1,6 +1,6 @@
 import React from 'react';
 
-expect class CongratulationMessageCB extends React.Component {
+export class CongratulationMessageCB extends React.Component {
     render() {
         const { threshold, onHide } = this.props;
         return (
