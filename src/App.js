@@ -13,35 +13,39 @@ import {
 } from './pages';
 import { NavBar } from './NavBar';
 import { UserDataLoader } from './UserDataLoader';
+import { ThemeContext } from './ThemeContext';
 // import { FormsNavBar } from './FormsNavBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-      <NavBar />
-        <div className='App-header'>
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/counter" element={<CounterButtonPage />} />
-          <Route path="/uncontrolled" element={<UnControlledFormPage />} />
-          <Route path="/controlled" element={<ControlledFormPage />} />
-          {/* <Route path="/forms" element={<FormsNavBar />} >
-              <Route path="forms/controlled" element={<ControlledFormPage />} />
-              <Route path="forms/uncontrolled" element={<UnControlledFormPage />} />
-          </Route> */}
-          <Route path="/people-list" element={<PeopleListPage />} />
-          <Route path="/protected" element={<ProtectedPage />} />
-          <Route path="/user" element={
-            <UserDataLoader>
-              <UserProfilePage />
-            </UserDataLoader>  }
-            />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        </div>
-      </Router>
-    </div>
+    <ThemeContext.Provider value="light">
+      <div className="App">
+        <Router>
+        <NavBar />
+          <div className='App-header'>
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/counter" element={<CounterButtonPage />} />
+            <Route path="/uncontrolled" element={<UnControlledFormPage />} />
+            <Route path="/controlled" element={<ControlledFormPage />} />
+            {/* <Route path="/forms" element={<FormsNavBar />} >
+                <Route path="forms/controlled" element={<ControlledFormPage />} />
+                <Route path="forms/uncontrolled" element={<UnControlledFormPage />} />
+            </Route> */}
+            <Route path="/people-list" element={<PeopleListPage />} />
+            <Route path="/protected" element={<ProtectedPage />} />
+            <Route path="/user" element={
+              <UserDataLoader>
+                <UserProfilePage />
+              </UserDataLoader>  }
+              />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          </div>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
