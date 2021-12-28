@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   HomePage,
@@ -18,11 +18,6 @@ import { ThemeContext } from './ThemeContext';
 
 
 function App() {
-//   const [numberOfClicks, setNumberOfClicks] = useState(0);
-//   const [hideMessage, setHideMessage] = useState(false);
-
-//   const increment = () => { setNumberOfClicks(numberOfClicks + 1); }
-
   return (
     <ThemeContext.Provider value="light">
       <div className="App">

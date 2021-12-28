@@ -18,6 +18,7 @@ export const CounterButtonPage = () => {
 
     const resetClickCount = () => {
         setNumberOfClicks(0);
+        setHideMessage(false);
     } 
 
     return (
@@ -31,7 +32,9 @@ export const CounterButtonPage = () => {
         <CounterButton
             onIncrement={increment}
             numberOfClicks={numberOfClicks} />
-        <DangerButton onClick={resetClickCount}>Reset</DangerButton>
+        <DangerButton
+            onClick={resetClickCount}
+        >Reset</DangerButton>
         </>
   );
 }
