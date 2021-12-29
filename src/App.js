@@ -12,7 +12,7 @@ import {
   UserProfilePage,
 } from './pages';
 import { NavBar } from './NavBar';
-import { UserDataLoader } from './UserDataLoader';
+// import { UserDataLoader } from './UserDataLoader';
 import { ThemeContext } from './ThemeContext';
 // import { FormsNavBar } from './FormsNavBar';
 
@@ -33,14 +33,10 @@ function App() {
                 <Route path="forms/controlled" element={<ControlledFormPage />} />
                 <Route path="forms/uncontrolled" element={<UnControlledFormPage />} />
             </Route> */}
-            <Route path="/people-list" element={<PeopleListPage />} />
-            <Route path="/protected" element={<ProtectedPage />} />
-            <Route path="/user" element={
-              <UserDataLoader>
-                <UserProfilePage />
-              </UserDataLoader>  }
-              />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/people-list" element={<PeopleListPage /> } />
+            <Route path="/protected" element={<ProtectedPage /> } />
+            <Route path="/user" element={ <UserProfilePage /> } />
+            <Route path="*" element={<NotFoundPage /> } />
           </Routes>
           </div>
         </Router>
